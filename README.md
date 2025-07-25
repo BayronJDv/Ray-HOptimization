@@ -75,7 +75,4 @@ Ray/
 
 4. Puedes ver ejemplos de uso de todos los endpoints en el archivo `Api/peticion.py`.
 
----
-
-```
 
