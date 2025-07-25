@@ -6,15 +6,16 @@ Este proyecto busca comparar el rendimiento y eficiencia de infraestructuras de 
 
 ## Estructura de Archivos
 
+
 ```
 Api/
   app.py                # API Flask principal
   Data.py               # Carga y preparación de datos
   SequencialSearch.py   # Búsqueda secuencial de hiperparámetros
   peticion.py           # Ejemplo de petición a la API
+  Ray/
+    ParalelDisSearch.py # Búsqueda paralela/distribuida con Ray
 Client/                 # Frontend (React + Vite)
-Ray/
-  ParalelDisSearch.py   # Búsqueda paralela/distribuida con Ray
 ```
 
 ## Instrucciones de Uso de la API
