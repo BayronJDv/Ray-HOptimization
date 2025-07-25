@@ -22,7 +22,7 @@ Ray/
 1. Instala las dependencias del backend:
    ```
    pip install -r requirements.txt
-   pip install ray boto3 joblib  # Ray no está en requirements.txt porque puede dar problemas en Windows
+   pip install ray  # Ray no está en requirements.txt porque puede dar problemas en Windows
    ```
 
 2. Inicia la API:
