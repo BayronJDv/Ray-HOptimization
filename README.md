@@ -74,6 +74,19 @@ Client/                 # Frontend (React + Vite)
        }
        ```
 
+
 4. Puedes ver ejemplos de uso de todos los endpoints en el archivo `Api/peticion.py`.
+
+---
+
+## Ejecución rápida con Docker
+
+Si prefieres no instalar dependencias manualmente, puedes correr la API directamente usando la imagen publicada en Docker Hub:
+
+```sh
+docker run -p 5000:5000 bayronj/rayapi
+```
+
+Esto levantará la API en http://localhost:5000 lista para recibir peticiones.
 
 
