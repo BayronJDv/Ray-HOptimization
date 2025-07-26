@@ -23,6 +23,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 pip3 install ray
 
+cd /home/ubuntu/Ray-HOptimization/Scripts
 
 if [ -z "$1" ]; then
     echo "Uso: ./rayworker.sh <HEAD_NODE_PRIVATE_IP>"
