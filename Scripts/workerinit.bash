@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Este script es para los worker nodes en AWS (VPC)
-# Debes pasar la IP privada del head node como argumento
 
 sudo apt update -y
 sudo apt upgrade -y
@@ -25,12 +24,6 @@ pip3 install ray
 
 cd /home/ubuntu/Ray-HOptimization/Scripts
 
-if [ -z "$1" ]; then
-    echo "Uso: ./rayworker.sh <HEAD_NODE_PRIVATE_IP>"
-    exit 1
-fi
-
-HEAD_PRIVATE_IP="$1"
-
+chmod +x ./rayinit.sh
 # Ejecuta rayinit.sh como worker, pasando la IP privada del head
-./rayinit.sh worker "$HEAD_PRIVATE_IP"
+./rayinit.sh worker 10.0.135.156
