@@ -75,7 +75,7 @@ def parallel_search():
     if not param_grid:
         return jsonify({'error': 'param_grid es requerido'}), 400
     if not ray.is_initialized():
-        ray.init(ignore_reinit_error=True)
+        ray.init(address='auto', ignore_reinit_error=True)
     model_name = request.get_json().get('model_name') if request.is_json else None
     best_params, best_score, best_model = run_ray_parallel_grid_search(X_train.values, y_train.values, param_grid)
 
@@ -122,6 +122,11 @@ def parallel_search():
 #     except Exception as e:
 #         return jsonify({'error': str(e)}), 500
 
+@app.route('/ray-status')
+def ray_status():
+    if not ray.is_initialized():
+        ray.init(address='auto', ignore_reinit_error=True)
+    return jsonify(ray.nodes())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
