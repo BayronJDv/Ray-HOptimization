@@ -87,4 +87,5 @@ def ray_status():
     return jsonify(ray.nodes())
 
 if __name__ == '__main__':
+    ray.init()
     app.run(host='0.0.0.0', port=5000, debug=True)
