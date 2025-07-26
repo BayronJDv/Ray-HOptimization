@@ -68,7 +68,7 @@ def parallel_search():
         return jsonify({'error': 'param_grid y datos de predicción requeridos'}), 400
     X_input = [[data[f] for f in features]]
     if not ray.is_initialized():
-        ray.init(address='auto', ignore_reinit_error=True)
+        ray.init()
     start = time.time()
     best_params, best_score, best_model = run_ray_parallel_grid_search(X_train.values, y_train.values, param_grid)
     elapsed = time.time() - start
@@ -83,7 +83,7 @@ def parallel_search():
 @app.route('/ray-status')
 def ray_status():
     if not ray.is_initialized():
-        ray.init(address='auto', ignore_reinit_error=True)
+        ray.init()
     return jsonify(ray.nodes())
 
 if __name__ == '__main__':
