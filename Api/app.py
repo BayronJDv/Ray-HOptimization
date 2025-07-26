@@ -77,10 +77,11 @@ def parallel_search():
         'best_params': best_params,
         'best_score': best_score,
         'search_time': elapsed,
-        'prediction': int(pred[0])
+        'prediction': int(pred[0]),
+        'nodes_used': ray.nodes(),
     })
 
-@app.route('/ray-status')
+@app.route('/ray-status', methods=['GET'])
 def ray_status():
     if not ray.is_initialized():
         ray.init()
