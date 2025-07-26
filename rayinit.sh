@@ -3,6 +3,7 @@
 # Obtener IP privada del nodo
 PRIVATE_IP=$(hostname -I | awk '{print $1}')
 
+
 # Si es el nodo HEAD
 if [ "$1" == "head" ]; then
     echo "Iniciando nodo HEAD en IP $PRIVATE_IP"

@@ -1,16 +1,17 @@
 import requests
+import sys
 
-BASE = "http://localhost:5000"
+BASE = f"http://{sys.argv[1]}" if len(sys.argv) > 1 else "http://localhost:5000"
 
 
 # Ejemplo de búsqueda secuencial y paralela con predicción
 print("\n--- Sequential Search & Predict ---")
 param_grid = {
-    "hidden_layer_sizes": [[5], [10]],
-    "activation": ["relu"],
-    "solver": ["adam"],
+    "hidden_layer_sizes": [[5,10], [17,5,20]],
+    "activation": ["relu","tanh"],
+    "solver": ["adam", "sgd"],
     "alpha": [0.001],
-    "max_iter": [50]
+    "max_iter": [50,100]
 }
 payload = {
     "param_grid": param_grid,
