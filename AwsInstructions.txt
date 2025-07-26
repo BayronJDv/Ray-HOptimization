@@ -12,11 +12,11 @@ Inbound:
 
 # 2. Head-sg (comunicación con cliente)
 Inbound:
-- Puerto 5000 desde client-sg
+- cualqueir comunicacion desde client-sg
 
 # 3. workers-internal-sg (comunicación entre workers)
 Inbound:
-- puerto 6379 desde head-sg
+- cualquier comunicacion desde head-sg
 
 3. crear la instancia head (usar ubuntu)
 ponerlo en surbred privada y head-sg 
