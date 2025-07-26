@@ -34,8 +34,9 @@ Client/                 # Frontend (React + Vite)
 
 3. Endpoints disponibles:
 
-   - **/sequential-search** (POST): Realiza búsqueda secuencial de hiperparámetros y puede guardar el modelo en S3.
-     - Body ejemplo:
+   - **/sequential-search** (POST): Realiza búsqueda secuencial de hiperparámetros y predicción.
+   - **/parallel-search** (POST): Igual que el anterior pero usando Ray para búsqueda paralela.
+     - Body ejemplo (para ambos):
        ```json
        {
          "param_grid": {
@@ -45,20 +46,6 @@ Client/                 # Frontend (React + Vite)
            "alpha": [0.001],
            "max_iter": [50]
          },
-         "model_name": "modelo_seq_demo"
-       }
-       ```
-
-   - **/parallel-search** (POST): Igual que el anterior pero usando Ray para búsqueda paralela.
-     - Body igual al anterior, cambiando el endpoint.
-
-   - **/list-models** (GET): Lista los modelos `.joblib` disponibles en el bucket S3.
-
-   - **/predict** (POST): Realiza inferencia usando un modelo guardado en S3.
-     - Body ejemplo:
-       ```json
-       {
-         "model_name": "modelo_seq_demo",
          "age": 25,
          "gender": 1,
          "education": 3,
@@ -73,9 +60,17 @@ Client/                 # Frontend (React + Vite)
          "ss": 0.7
        }
        ```
+     - Respuesta ejemplo:
+       ```json
+       {
+         "best_params": { ... },
+         "best_score": 0.85,
+         "search_time": 12.34,
+         "prediction": 1
+       }
+       ```
 
-
-4. Puedes ver ejemplos de uso de todos los endpoints en el archivo `Api/peticion.py`.
+4. Puedes ver ejemplos de uso de los endpoints en el archivo `Api/peticion.py`.
 
 ---
 
