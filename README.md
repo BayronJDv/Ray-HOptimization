@@ -115,6 +115,9 @@ docker run -p 5000:5000 bayronj/rayapi
 ```
 
 ### AWS
+
+![Arquitectura aws](./AwsArch.png)
+
 Para instrucciones detalladas sobre el despliegue en AWS, consulta el archivo `AwsDeployment.md`.
 
 ## Scripts de Despliegue
